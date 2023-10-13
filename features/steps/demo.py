@@ -1,12 +1,17 @@
-from behave import given, use_step_matcher, when, then
+from typing import Union
+from behave import given, when, then, use_step_matcher
 
-from custom_parameter_types import WaterCoolingDeviceTypes
+from custom_parameter_types import WaterCoolingDeviceTypes, AirCoolingDeviceTypes
 
 
 use_step_matcher("cucumber_expressions")
 
+
 @given("we are using a {WaterCoolingDeviceTypes}")
-def use_water_cooling_device(context, device: WaterCoolingDeviceTypes):
+@given("we are using a {AirCoolingDeviceTypes}")
+def use_water_cooling_device(
+    context, device: Union[WaterCoolingDeviceTypes, AirCoolingDeviceTypes]
+):
     context.water_cooling_device = device
 
 
