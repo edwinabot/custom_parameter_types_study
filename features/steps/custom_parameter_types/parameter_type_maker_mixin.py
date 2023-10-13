@@ -7,6 +7,7 @@ class ParameterTypeMakerMixin:
     delete_dict = {" ": "", "-": ""}
     delete_table = str.maketrans(delete_dict)
 
+    @classmethod
     def make_parameter_type(cls) -> ParameterType:
         """Builds a ParameterType for the current class."""
         raise NotImplementedError
