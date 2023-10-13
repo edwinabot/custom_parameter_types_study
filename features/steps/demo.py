@@ -1,15 +1,22 @@
 from typing import Union
 from behave import given, when, then
 
-from custom_parameter_types import WaterCoolingDeviceTypes, AirCoolingDeviceTypes
-
+from custom_parameter_types import (
+    WaterCoolingDeviceTypes,
+    AirCoolingDeviceTypes,
+    OilCoolingDeviceTypes,
+)
 
 @given("we are using a {WaterCoolingDeviceTypes}")
 @given("we are using a {AirCoolingDeviceTypes}")
-def use_water_cooling_device(
-    context, device: Union[WaterCoolingDeviceTypes, AirCoolingDeviceTypes]
+@given("we are using a {OilCoolingDeviceTypes}")
+def use_fluid_cooling_device(
+    context,
+    device: Union[
+        WaterCoolingDeviceTypes, AirCoolingDeviceTypes, OilCoolingDeviceTypes
+    ],
 ):
-    context.water_cooling_device = device
+    context.fluid_cooling_device = device
 
 
 @given("the fluid temperature is {float} degrees")
